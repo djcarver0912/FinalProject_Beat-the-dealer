@@ -14,20 +14,35 @@ while True:
     random.shuffle(deck)
 
 #Deal cards
+    player = [deck.pop(), deck.pop()]
+    dealer = [deck.pop(), deck.pop()]
 
 #First, the player's turn
-   
+    while True:
+        print("Your hand:", player, "Total =", calculate_total(player))
+        print("Dealer Shows:", dealer[0])
+
+        if calculate_total(player) > 21:
+            print("You bust! Dealer Wins")
+            break
+        
+        choice = input("hit or stand? ").lower()
+        if choice == "hit":
+            player.append(deck.pop())
+        else:
+            break
 
 #If you bust 
-        
+    if calculate_total(player) <= 21:
 
-#Hit or Stand
-        
-#Next the dealer's turn
-
+#Dealer Turn
+        print("Dealer's Hand:", dealer, "Total =", calculate_total(dealer))   
+        while calculate_total(dealer < 17):
+            dealer.append(deck.pop)
+            print("Dealer Hits:", dealer, "Total=", calculate_total(dealer))
 
 
 #Show hand and determine winner
-
+        
 
 #Potential loop or exit for the player
