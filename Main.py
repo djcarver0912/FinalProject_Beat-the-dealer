@@ -31,11 +31,17 @@ while True:
             print("You bust! Dealer Wins")
             break 
         
-        choice = input("hit or stand? ").lower() #If you have 21 or less, you can choose to hit or stand
+        while True:
+            choice = input("Hit or Stand? ").strip().lower() #Help the user out, if they enter lowercase, uppercase, it counts. 
+            if choice in ("hit", "stand"):
+                break
+            print("Invalid Input. Please type hit or stand.") #Make sure the user enters some variation of "hit" or "Stand"
+
         if choice == "hit":
-            player.append(draw_card()) #If you choose to hit, another random card will be placed in your hand
+            player.append(draw_card())
         else:
-            break 
+            break
+            
 
 #If you bust 
     if calculate_total(player) <= 21: #After the player takes their turn, if you have a value less than/equal to 21, the game will continue. 
